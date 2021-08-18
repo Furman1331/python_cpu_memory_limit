@@ -6,8 +6,8 @@ import subprocess
 smtp_server = "smtp.gmail.com"
 port = 465 # FOR SSL
 # GMAIL CONFIG
-sender_email = "michalfurmanczak.rcponline@gmail.com"
-password = input("Type your password for email michalfurmanczak.rcponline@gmail.com: ")
+sender_email = "mail@gmail.com"
+password = input("Type your password for email ",sender_email,": ")
 email_reciver = ["michalfurmanczak@gmail.com"]
 
 message = """\
@@ -17,9 +17,9 @@ You recive this message because, CPU or RAM usage is too high and this might be 
 
 def main():
     while True:
-        if(psutil.virtual_memory().percent >= 70.0 or psutil.virtual_memory().percent >= 90.0):
+        if(psutil.virtual_memory().percent >= 70.0):
             sendWarning(False)
-        elif(psutil.cpu_percent() >= 70.0 or psutil.cpu_percent() >= 90.0):
+        elif(psutil.cpu_percent() >= 70.0):
             sendWarning(True)
 
         print("Accual Memory Usage Is ", psutil.virtual_memory().percent)
